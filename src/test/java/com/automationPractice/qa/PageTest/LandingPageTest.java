@@ -18,11 +18,28 @@ public class LandingPageTest extends TestBase {
 		lp = new LandingPage();
 	}
 
-	@Test
+	@Test(priority = 1)
 	public void verifyTitleOfThePage() {
 		String titleOfThePage = wd.getTitle();
 		Assert.assertEquals(titleOfThePage, "My Store");
 	}
+
+	@Test(priority = 2)
+	public void verifyIsLogoDisplayed() {
+		boolean isDisplayed = lp.isLogoDisplayed();
+		Assert.assertTrue(isDisplayed);
+	}
+
+	@Test(priority = 3)
+	public void verifySearchFunctionality() {
+		lp.enterTextInSearchField("Tops");
+		lp.clickOnSearchButton();
+		String actualMessageText = lp.getErrorMessageText();
+		Assert.assertTrue(actualMessageText.contains("No results were found for your search"));
+	}
+	
+	
+	
 
 	@AfterMethod
 	public void quitDriver() {

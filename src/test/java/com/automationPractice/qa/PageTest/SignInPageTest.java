@@ -1,5 +1,14 @@
 package com.automationPractice.qa.PageTest;
 
-public class SignInPageTest {
+import org.testng.annotations.BeforeMethod;
 
+import com.automationPractice.qa.TestBase.TestBase;
+
+public class SignInPageTest extends TestBase {
+
+	
+	@BeforeMethod
+	public void intialise() {
+		
+	}
 }

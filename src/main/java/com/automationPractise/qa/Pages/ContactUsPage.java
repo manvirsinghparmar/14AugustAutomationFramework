@@ -1,22 +1,26 @@
 package com.automationPractise.qa.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.automationPractice.qa.TestBase.TestBase;
 
 public class ContactUsPage extends TestBase {
 
-	WebElement messageInput = wd.findElement(By.id("hdgd"));
-
-	WebElement getTheTextFromHeader = wd.findElement(By.id("hdgd"));
-
-	public void sendMessage(String message) {
-		messageInput.sendKeys(message);
+	public ContactUsPage() {
+		PageFactory.initElements(wd, this);
 	}
 
-	public String getTextFromHead() {
-		return getTheTextFromHeader.getText();
+	@FindBy(id = "message")
+	WebElement messageInput;
+
+	@FindBy(id = "email")
+	WebElement emailInput;
+
+	
+	public void sendMessage(String message) {
+		messageInput.sendKeys(message);
 	}
 
 }

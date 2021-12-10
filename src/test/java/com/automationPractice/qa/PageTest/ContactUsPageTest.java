@@ -9,14 +9,16 @@ import com.automationPractise.qa.Pages.LandingPage;
 
 public class ContactUsPageTest extends TestBase {
 
-	LandingPage lp;
+
 	ContactUsPage cp;
 
 	@BeforeMethod
 	public void intialise() {
+		
+		
 		setUp();
-		lp = new LandingPage();
-		cp = lp.clickContactUs();
+		cp=new ContactUsPage();
+	
 	}
 
 	@Test

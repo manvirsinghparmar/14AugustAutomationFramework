@@ -1,17 +1,21 @@
 package com.automationPractice.qa.TestBase;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.testng.annotations.BeforeClass;
+
+import com.automationPractise.qa.Utils.WebDriverFiringEventListener;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,6 +23,9 @@ public class TestBase {
 
 	public static WebDriver wd;
 	public static Properties prop;
+	public static Logger logger;
+	public static EventFiringWebDriver e_driver;
+	public static WebDriverFiringEventListener eventlistner;
 
 	public TestBase() {
 
@@ -33,6 +40,15 @@ public class TestBase {
 			e.printStackTrace();
 		}
 
+	}
+
+	@BeforeClass
+	public void loggerSetup() {
+		logger = Logger.getLogger(TestBase.class);
+		PropertyConfigurator.configure("log4j.properties");
+		BasicConfigurator.configure();
+
+		logger.setLevel(Level.INFO);
 	}
 
 	public void setUp() {
@@ -51,6 +67,13 @@ public class TestBase {
 		} else {
 			System.out.println("Browser name is not correct");
 		}
+
+		e_driver = new EventFiringWebDriver(wd);
+
+		eventlistner = new WebDriverFiringEventListener();
+		e_driver.register(eventlistner);
+
+		wd = e_driver;
 
 		wd.manage().window().maximize();
 		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

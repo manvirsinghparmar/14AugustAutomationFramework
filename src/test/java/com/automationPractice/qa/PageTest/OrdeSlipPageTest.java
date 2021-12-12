@@ -30,12 +30,12 @@ public class OrdeSlipPageTest extends TestBase {
 
 	@Test
 	public void verifyBannerText() {
-		
+
 		String bannerText = op.getBannerText();
 		Assert.assertEquals(bannerText, "You have not received any credit slips.");
 
 	}
-	
+
 	@Test
 	public void verifyTitleOfOrderListPage() {
 		Assert.assertEquals(wd.getTitle(), "Order slip - My Store");

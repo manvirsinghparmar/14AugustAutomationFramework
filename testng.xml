@@ -3,9 +3,14 @@
 <suite name="Suite">
 	<listeners>
 		<listener
-			class-name="com.automationPractise.qa.Utils.CustomListener"></listener>
+			class-name="com.automationPractise.qa.Utils.CustomListener" />
 		<listener
-			class-name="com.automationPractice.qa.RetryLogic.TransformerForRetry"></listener>
+			class-name="com.automationPractice.qa.RetryLogic.TransformerForRetry" />
+
+		<listener
+			class-name="com.automationPractise.qa.Utils.ExtentReportListener" />
+
+
 	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>
@@ -14,8 +19,7 @@
 			<class
 				name="com.automationPractice.qa.PageTest.OrdeSlipPageTest" />
 			<class name="com.automationPractice.qa.PageTest.SignInPageTest" />
-			<class
-				name="com.automationPractice.qa.PageTest.ContactUsPageTest" />
+
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

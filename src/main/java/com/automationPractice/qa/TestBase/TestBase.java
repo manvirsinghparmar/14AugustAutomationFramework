@@ -1,6 +1,8 @@
 package com.automationPractice.qa.TestBase;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -8,11 +10,16 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
 import com.automationPractise.qa.Utils.WebDriverFiringEventListener;
@@ -26,20 +33,21 @@ public class TestBase {
 	public static Logger logger;
 	public static EventFiringWebDriver e_driver;
 	public static WebDriverFiringEventListener eventlistner;
+	public static JavascriptExecutor jse;
 
 	public TestBase() {
 
 		prop = new Properties();
-
+		
 		try {
+		
 			FileInputStream fs = new FileInputStream(
 					"C:\\Users\\Owner\\eclipse-workspace\\14AugBatch\\src\\main\\java\\com\\automationPractise\\qa\\Properties\\config.properties");
 
 			prop.load(fs);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO: handle exception
 		}
-
 	}
 
 	@BeforeClass
@@ -85,6 +93,35 @@ public class TestBase {
 
 	public void tearDown() {
 		wd.quit();
+
+	}
+
+	public void waitForDocumentCompleteState(int secondsToWait) {
+		new WebDriverWait(wd, secondsToWait).until((ExpectedCondition<Boolean>) wd -> {
+
+			while (true) {
+				String readyState = getDocumentReadyState();
+
+				if (readyState.equals("complete")) {
+					System.out.println("Document Ready State is : " + readyState);
+					return true;
+				} else {
+					System.out.println("Document is not in Ready State : " + readyState);
+				}
+
+			}
+
+		});
+
+	}
+
+	private String getDocumentReadyState() {
+		jse = (JavascriptExecutor) wd;
+		try {
+			return jse.executeScript("return document.readyState").toString();
+		} catch (WebDriverException e) {
+			return null;
+		}
 
 	}
 

@@ -38,9 +38,9 @@ public class TestBase {
 	public TestBase() {
 
 		prop = new Properties();
-		
+
 		try {
-		
+
 			FileInputStream fs = new FileInputStream(
 					"C:\\Users\\Owner\\eclipse-workspace\\14AugBatch\\src\\main\\java\\com\\automationPractise\\qa\\Properties\\config.properties");
 
@@ -93,25 +93,6 @@ public class TestBase {
 
 	public void tearDown() {
 		wd.quit();
-
-	}
-
-	public void waitForDocumentCompleteState(int secondsToWait) {
-		new WebDriverWait(wd, secondsToWait).until((ExpectedCondition<Boolean>) wd -> {
-
-			while (true) {
-				String readyState = getDocumentReadyState();
-
-				if (readyState.equals("complete")) {
-					System.out.println("Document Ready State is : " + readyState);
-					return true;
-				} else {
-					System.out.println("Document is not in Ready State : " + readyState);
-				}
-
-			}
-
-		});
 
 	}
 

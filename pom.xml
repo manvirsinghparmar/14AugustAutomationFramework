@@ -81,6 +81,14 @@
 			<version>3.17</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-project-info-reports-plugin</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+
+
 
 
 	</dependencies>
@@ -104,10 +112,8 @@
 					<version>3.8.0</version>
 					<configuration>
 						<fork>true</fork>
-						<configuration>
-							<source>1.8</source>
-							<target>1.8</target>
-						</configuration>
+						<executable>C:\Program Files\Java\jdk1.8.0_202\bin\javac.exe</executable>
+						<compilerVersion>1.8</compilerVersion>
 					</configuration>
 
 				</plugin>

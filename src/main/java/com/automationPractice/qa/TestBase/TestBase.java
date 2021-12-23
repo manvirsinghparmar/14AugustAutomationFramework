@@ -92,6 +92,7 @@ public class TestBase {
 	}
 
 	public void tearDown() {
+		logger.info("Quitting Browser");
 		wd.quit();
 
 	}

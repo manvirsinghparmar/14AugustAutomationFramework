@@ -5,11 +5,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.automationPractice.qa.Pages.LandingPage;
+import com.automationPractice.qa.Pages.MyAccountPage;
+import com.automationPractice.qa.Pages.OrderSlipPage;
+import com.automationPractice.qa.Pages.SignInPage;
 import com.automationPractice.qa.TestBase.TestBase;
-import com.automationPractise.qa.Pages.LandingPage;
-import com.automationPractise.qa.Pages.MyAccountPage;
-import com.automationPractise.qa.Pages.OrderSlipPage;
-import com.automationPractise.qa.Pages.SignInPage;
 
 public class OrdeSlipPageTest extends TestBase {
 

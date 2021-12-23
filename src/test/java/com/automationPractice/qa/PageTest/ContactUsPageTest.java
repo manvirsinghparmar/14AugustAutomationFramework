@@ -1,16 +1,14 @@
 package com.automationPractice.qa.PageTest;
 
-import java.io.IOException;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.automationPractice.qa.Pages.ContactUsPage;
+import com.automationPractice.qa.Pages.LandingPage;
 import com.automationPractice.qa.TestBase.TestBase;
-import com.automationPractise.qa.Pages.ContactUsPage;
-import com.automationPractise.qa.Pages.LandingPage;
-import com.automationPractise.qa.Utils.ExcelUtils;
+import com.automationPractice.qa.Utils.ExcelUtils;
 
 public class ContactUsPageTest extends TestBase {
 

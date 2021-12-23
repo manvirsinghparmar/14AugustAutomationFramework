@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
-import com.automationPractise.qa.Utils.WebDriverFiringEventListener;
+import com.automationPractice.qa.Utils.WebDriverFiringEventListener;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -42,7 +42,7 @@ public class TestBase {
 		try {
 
 			FileInputStream fs = new FileInputStream(
-					"C:\\Users\\Owner\\eclipse-workspace\\14AugBatch\\src\\main\\java\\com\\automationPractise\\qa\\Properties\\config.properties");
+					"C:\\Users\\Owner\\eclipse-workspace\\14AugBatch\\src\\main\\java\\com\\automationPractice\\qa\\Properties\\config.properties");
 
 			prop.load(fs);
 		} catch (Exception e) {

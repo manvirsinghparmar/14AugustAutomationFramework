@@ -3,12 +3,12 @@
 <suite name="Suite">
 	<listeners>
 		<listener
-			class-name="com.automationPractise.qa.Utils.CustomListener" />
+			class-name="com.automationPractice.qa.Utils.CustomListener" />
 		<listener
 			class-name="com.automationPractice.qa.RetryLogic.TransformerForRetry" />
 
 		<listener
-			class-name="com.automationPractise.qa.Utils.ExtentReportListener" />
+			class-name="com.automationPractice.qa.Utils.ExtentReportListener" />
 
 
 	</listeners>

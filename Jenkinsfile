@@ -62,13 +62,13 @@ pipeline {
         def sendNotification(buildChanged){
             if (currentBuild.currentResult== 'SUCCESS') {       
             script {
-            emailext(to: 'manvir.singh.parmar@gmail.com',subject: "$JOB_NAME - Build # ${currentBuild.currentResult}!",body:"The build is back to normal. Check console output at ${BUILD_URL} to view the results", mimetype:'text/html',)                                                                                 
+            emailext(to: 'manvir.singh.parmar88@gmail.com',subject: "$JOB_NAME - Build # ${currentBuild.currentResult}!",body:"The build is back to normal. Check console output at ${BUILD_URL} to view the results", mimetype:'text/html',)                                                                                 
                 }
 				}
                 
                 else  if (currentBuild.currentResult== 'FAILURE' && buildChanged) {       
             script {
-            emailext(to: 'manvir.singh.parmar@gmail.com',subject: "$JOB_NAME - Build # ${currentBuild.currentResult}!",body:"Something went wrong.Check console output at ${BUILD_URL} to view the results", mimetype:'text/html',)
+            emailext(to: 'manvir.singh.parmar88@gmail.com',subject: "$JOB_NAME - Build # ${currentBuild.currentResult}!",body:"Something went wrong.Check console output at ${BUILD_URL} to view the results", mimetype:'text/html',)
  
                                                                                                
                 }

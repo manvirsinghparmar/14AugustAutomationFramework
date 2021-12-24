@@ -3,7 +3,7 @@ pipeline {
     label 'master'}
 
     stages {
-        stage('Build') {
+        stage('Clean') {
             steps {
             echo "BUILD_NUMBER=${env.BUILD_NUMBER}"
             echo "BRANCH_NAME=${env.BRANCH_NAME}"

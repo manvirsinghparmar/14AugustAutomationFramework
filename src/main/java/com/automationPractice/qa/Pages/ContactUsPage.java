@@ -21,8 +21,8 @@ public class ContactUsPage extends TestBase {
 
 	@FindBy(id = "id_contact")
 	WebElement selectHeading;
-	
-	@FindBy(id="submitMessage")
+
+	@FindBy(id = "submitMessage")
 	WebElement submitBtn;
 
 	public void sendMessage(String message) {
@@ -38,7 +38,7 @@ public class ContactUsPage extends TestBase {
 
 		select.selectByIndex(1);
 	}
-	
+
 	public void clickSub() {
 		submitBtn.click();
 	}

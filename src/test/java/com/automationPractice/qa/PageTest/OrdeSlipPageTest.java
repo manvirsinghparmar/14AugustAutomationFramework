@@ -38,7 +38,7 @@ public class OrdeSlipPageTest extends TestBase {
 
 	@Test
 	public void verifyTitleOfOrderListPage() {
-		Assert.assertEquals(wd.getTitle(), "Order slip - y Store");
+		Assert.assertEquals(wd.getTitle(), "Order slip - My Store");
 	}
 
 	@AfterMethod
